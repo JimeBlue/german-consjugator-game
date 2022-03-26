@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Home = () => {
+  let verb = '';
   const [verbs, setVerbs] = useState(null);
   useEffect(() => {
     axiosGet();
@@ -19,7 +20,11 @@ const Home = () => {
 
   const randomObject = verbs[Math.floor(Math.random() * verbs.length)];
 
-  console.log(randomObject);
+  // Get verb to be shown to user for conjugation
+
+  verb = randomObject.verb;
+
+  console.log(verb);
   return (
     <section>
       <h1>Conjugate the following verb:</h1>
