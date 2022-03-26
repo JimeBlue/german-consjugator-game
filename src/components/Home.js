@@ -13,9 +13,13 @@ const Home = () => {
       .then((data) => setVerbs(data.data));
   };
 
-  console.log(verbs);
-
   if (!verbs) return null; // empty render until we get data
+
+  // Get random object from array of verbs
+
+  const randomObject = verbs[Math.floor(Math.random() * verbs.length)];
+
+  console.log(randomObject);
   return (
     <section>
       <h1>Conjugate the following verb:</h1>
