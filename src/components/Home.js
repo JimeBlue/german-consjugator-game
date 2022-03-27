@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const Home = () => {
   let pronoum = '';
-  let verb = '';
   let tense = '';
   let answer = '';
 
@@ -22,6 +21,8 @@ const Home = () => {
 
   if (!verbs) return null; // empty render until we get data
 
+  /*
+
   // Get random object from array of verbs
 
   const randomObject = verbs[Math.floor(Math.random() * verbs.length)];
@@ -29,7 +30,6 @@ const Home = () => {
   // Get verb to be shown to user for conjugation
 
   verb = randomObject.verb;
-  console.log('🐎' + verb);
 
   // Get all the conjugations of the verb to be shown
 
@@ -56,10 +56,17 @@ const Home = () => {
     }
   }
 
+  */
+
   const checkAnswer = (event) => {
     event.preventDefault();
+
+    if (answer === studentAnswer) {
+      console.log(`👾 I´m working`);
+    } else {
+      console.log(`NOT  working`);
+    }
     setStudentAnswer('');
-    console.log(`👾 I´m working`);
   };
 
   // const noRefreshing = React.memo(() => {});
@@ -68,7 +75,7 @@ const Home = () => {
     <section>
       <h1>Conjugate the following verb:</h1>
       <ul>
-        <li>Verb: {verb}</li>
+        <li>Verb: </li>
         <li>Person: {pronoum}</li>
         <li>Tense: {tense}</li>
       </ul>
