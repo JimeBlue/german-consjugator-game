@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Home = () => {
-  let verb = '';
   let pronoum = '';
+  let verb = '';
   let tense = '';
   let answer = '';
 
+  const [studentAnswer, setStudentAnswer] = useState('');
   const [verbs, setVerbs] = useState(null);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ const Home = () => {
   // Get verb to be shown to user for conjugation
 
   verb = randomObject.verb;
+  console.log('🐎' + verb);
 
   // Get all the conjugations of the verb to be shown
 
@@ -53,6 +55,15 @@ const Home = () => {
       answer = randomKeyValuePair[1];
     }
   }
+
+  const checkAnswer = (event) => {
+    event.preventDefault();
+    setStudentAnswer('');
+    console.log(`👾 I´m working`);
+  };
+
+  // const noRefreshing = React.memo(() => {});
+
   return (
     <section>
       <h1>Conjugate the following verb:</h1>
@@ -61,6 +72,22 @@ const Home = () => {
         <li>Person: {pronoum}</li>
         <li>Tense: {tense}</li>
       </ul>
+      <form action="">
+        <label>
+          Conjugation:
+          <input
+            value={studentAnswer}
+            onChange={(event) => setStudentAnswer(event.target.value)}
+            type="text"
+            name="conjugation"
+            placeholder="Write your answer here"
+          />
+        </label>
+
+        <button type="submitt" onClick={checkAnswer}>
+          CHECK
+        </button>
+      </form>
     </section>
   );
 };
