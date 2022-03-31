@@ -38,6 +38,7 @@ const Home = () => {
 
     // Get verb to be shown to user for conjugation
     setVerb(randomObject.verb);
+
     // Get all the conjugations of the verb to be shown
     const conjugationsOfVerb = randomObject.conjugations;
     // Get a random key of the object conjugationsOfVerb to have a tense to show to user
@@ -57,6 +58,7 @@ const Home = () => {
         const randomKeyPair = Object.entries(conjugationsOfVerb[tense]);
         const randomKeyValuePair =
           randomKeyPair[Math.floor(Math.random() * randomKeyPair.length)];
+
         setPronoum(randomKeyValuePair[0]);
         setAnswer(randomKeyValuePair[1]);
       }
